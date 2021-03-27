@@ -23,19 +23,15 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+Decl can be parsed at different levels of detail. The tokenizer simply takes a line iterator and skims it to extract the bare minimum of the line shape in order
+to facilitate indexing or support some other parsing, such as building an in-memory data structure. This token stream is pretty minimal; for instance, the contents
+of brackets are not parsed at all, just identified and passed through as a kind of quoted string. The next stage in processing has to identify any internal structure
+in bracketed line parameters.
 
-Perhaps a little code snippet.
+=head1 CREATING A TOKENIZER
 
-    use Decl::Tok;
-
-    my $foo = Decl::Tok->new();
-    ...
-
-=head1 CREATING A FIRST-LINE TOKENIZER
-
-Decl can be parsed at different levels of detail. The first-line tokenizer simply skims a line iterator and extracts the bare minimum of the line shape in order
-to facilitate indexing.
+Essentially, C<skim> is currently the beginning and end of tokenization at the stream level. A parameter tokenizer could be added as a second level of processing,
+but I currently don't plan to do that, instead breaking out bracketed data in the data structure parser.
 
 =head2 skim (source, type)
 

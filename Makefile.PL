@@ -16,6 +16,7 @@ WriteMakefile(
     },
     BUILD_REQUIRES => {
         'Test::More' => 0,
+        'Data::Dumper' => 0,
     },
     PREREQ_PM => {
         'Iterator::Records'  => 0,
